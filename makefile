@@ -29,7 +29,7 @@ benchmark:
 lint:
 	golangci-lint run ./...
 
-test: mock
+test:
 	go test -v -race $(TEST) $(TESTARGS) -covermode=atomic
 
 coverprofile: mock
@@ -54,10 +54,6 @@ fmt:
 # "make protobuf".
 generate:
 	go generate ./...
-
-# mock runs `mockgen` to generate mock interfaces from source file
-mock:
-	@sh -c "'$(CURDIR)/scripts/mock.sh'"
 
 # disallow any parallelism (-j) for Make. This is necessary since some
 # commands during the build process create temporary files that collide
