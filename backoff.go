@@ -35,6 +35,9 @@ type BackOff interface {
 // Stop indicates that no more retries should be made for use in NextBackOff().
 const Stop time.Duration = -1
 
+// Infinity indicates that retries will be made forever
+const Infinity time.Duration = 0
+
 // ZeroBackOff is a fixed backoff policy whose backoff time is always zero,
 // meaning that the operation is retried immediately without waiting, indefinitely.
 type ZeroBackOff struct{}

@@ -14,10 +14,6 @@ go:
 git:
   depth: 1
 
-notifications:
-  email:
-    - langyu0826@gmail.com
-
 install:
   - env GO111MODULE=on make tools
 
