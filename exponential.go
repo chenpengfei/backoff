@@ -113,7 +113,7 @@ func (b *ExponentialBackOff) Reset() {
 // 	Randomized interval = RetryInterval * (1 ± RandomizationFactor)
 func (b *ExponentialBackOff) NextBackOff() time.Duration {
 	// Make sure we have not gone over the maximum elapsed time.
-	if b.MaxElapsedTime != 0 && b.GetElapsedTime() > b.MaxElapsedTime {
+	if b.MaxElapsedTime != Infinity && b.GetElapsedTime() > b.MaxElapsedTime {
 		return Stop
 	}
 	defer b.incrementCurrentInterval()
